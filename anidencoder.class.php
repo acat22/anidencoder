@@ -69,36 +69,6 @@ $uniqueKey = ANIdEncoder::enc($uniqueNumber, 5, $schema);
  * The default scheme makes it unlikely for the keys similar to real existing english 
  * words to be generated.
  * 
- * ALGORITHM:
- * The algorithm uses an array called "scheme", it consists from "rows" - strings of characters.
- * They may be uneven and contain different characters sets. 
- * In each row each character shall be used only once.
- * The algorithm divides the number by the length of the current row and encodes the remain with 
- * it. Then repeats with the leftover, using the next row in cycle, until the whole number is 
- * encrypted. To provide "pseudo-random", in each step the current row is shifted depending on 
- * the current state.
- * 
- * SCHEME IMPROVING:
- * You can make your own scheme. Say, if you make a scheme that doesn't contain 'e' 
- * character in one row and doesn't contain 'n' character in the next row, the combination 
- * of 'en' can never happen within those two lines. You can check if a word may be generated 
- * by looking at your scheme.
- * Say, the scheme is (for short example) : 
- * [
- *    'abcdeh', 
- *    'rda890',
- *    'MNopTs'
- * ]
- * the following scheme can happen to make keys (if without padding) such as: 
- * haT, baN, cap, has, caN, c8sad, h9pad
- * if you remove/replace 'a' character from the second row, it will never happen.
- * 
- * You can change the scheme and use your own.
- * You may want to make the scheme more neat, lessen numbers of uppercase characters or add 
- * more numbers.
- * 
- * 
- * 
  * Licensed under GPL v. 2. 
  * PROVIDED AS IS. NO WARRANTY. USE ON YOUR OWN RISK.
  * 
@@ -128,19 +98,12 @@ class ANIdEncoder {
 	 * Always use the same scheme for one stack of values, if you change it, 
 	 * the uniqueness fails and you won't be able to retrieve values.
 	 */
-	/*protected $_schema = array(
+	protected $_schema = array(
 	'W1q3ewRQ2E4rT6tU5y7Ou8i9op0YIPnb',
 	'nrmzdxsgtcjkqflvbahw',
 	'H8YD5LJ3A7S2RPWQKN1TBU0G4M6F9CVZ',
 	'nAXzFdxsBgHcZKjSDkMCfVGlNvmJbLah',
 	'1ax5z2mr7wsv3bcg8qn9l4i0dfp6tjky'
-	);*/
-	protected $_schema = array(
-	'W8YD5LJ3A7S2RPHQKN1TBU0G4M6F9CVZ',
-	'nAXzFdxsBgHcZKjSDkMCfVGlNvmJbLah',
-	'nrmzdxsgtcjkqflvbahw',
-	'1ax5z2mr7wsv3cg8qn9l4i0dfp6tjky',
-	'W1q3ewRQ2E4rT6tU5y7Ou8i9op0YIPnb'
 	);
 	
 	// wrapper
