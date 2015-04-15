@@ -103,15 +103,12 @@ class ANIdEncoder {
 		$this->_rowLengths = array();
 		$this->_numRows = count($this->_schema);
 		for ($i = 0; $i < $this->_numRows; $i++) {
-			$a = $this->_schema[$i];
 			
-			$s = str_split($a);
-			$len = count($s);
+			$s = str_split($this->_schema[$i]);
 			
-			$aa = array_merge($s, $s); // double it for better performance in encoding
-			$this->_charsets[] = $aa;
+			$this->_charsets[] = array_merge($s, $s); // double it for better performance in encoding
 			$this->_flipCharsets[] = array_flip($s);
-			$this->_rowLengths[] = $len;
+			$this->_rowLengths[] = count($s);
 		}
 	}
 	
