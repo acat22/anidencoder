@@ -106,9 +106,9 @@ class ANIdEncoder {
 			
 			$s = str_split($this->_schema[$i]);
 			
-			$this->_charsets[] = array_merge($s, $s); // double it for better performance in encoding
-			$this->_flipCharsets[] = array_flip($s);
-			$this->_rowLengths[] = count($s);
+			$this->_charsets[$i] = array_merge($s, $s); // double it for better performance in encoding
+			$this->_flipCharsets[$i] = array_flip($s);
+			$this->_rowLengths[$i] = count($s);
 		}
 	}
 	
