@@ -18,15 +18,15 @@ USAGE:
 
 	$uniqueNumber = 12345; // your unique numeric id
 
-	$uniqueKey = ANIdEncoder::enc($uniqueNumber); // return pv5L3 (with default schema)
+	$uniqueKey = ANIdEncoder::enc($uniqueNumber);
 
 OR
 --
 
 	$e = new ANIdEncoder;
-	$uniqueKey = $e->encode($uniqueNumber); // return pv5L3 (with default schema)
-	$uniqueKeyPaddedTo4 = $e->encode($uniqueNumber, 4); // return pv5L (with default schema)
-	$uniqueKeyNotPadded = $e->encode($uniqueNumber, 0); // return pv5 (with default schema)
+	$uniqueKey = $e->encode($uniqueNumber);
+	$uniqueKeyPaddedTo4 = $e->encode($uniqueNumber, 4);
+	$uniqueKeyNotPadded = $e->encode($uniqueNumber, 0);
 
 
 get numeric value:
@@ -46,13 +46,18 @@ OR
 Using custom scheme:
 --------------------
 
-	$schema = array('1234567890qwertyuiop', 'asdfghjklzxcvbnm', 'asdfghjkl1234567890'); // your custom schema
+	$schema = array(
+		'1234567890qwertyuiop', 
+		'asdfghjklzxcvbnm', 
+		'asdfghjkl1234567890'
+	); // your custom schema
+	
 	$e = new ANIdEncoder($schema);
 
 or just pass the scheme into the static methods:
 ------------------------------------------------
 
-$uniqueKey = ANIdEncoder::enc($uniqueNumber, 5, $schema);
+	$uniqueKey = ANIdEncoder::enc($uniqueNumber, 5, $schema);
 
 
 
