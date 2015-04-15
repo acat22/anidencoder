@@ -5,11 +5,12 @@ This class creates unique alpha-numeric keys out of unique integer numbers, look
 OjLf5, evPn0, wfQzm, RlSn0, QfDH4, 2zLf5, rjWBb, ThAZw, 6c1Cf, tqGA2, 4xLf5,  
 YwZVrIm, Iz1ZxPs, Pj7gn3n, nmKl21b, bj8Xiqm, etc.  
 
-It doesn't create words and the uniqueness is guaranteed.  
+It doesn't create words (well, low probability) and the uniqueness is guaranteed.  
+It doesn't create stuff like 'aaaaa' or '11111' or 'allow' or 'busy' too.    
 
 METHODS:  
-static enc($uint, $padTo = 5, $schema = null) : string - wrapper for (new + encode())  
-static dec($string, $schema = null) : uint or FALSE    - wrapper for (new + decode())  
+static enc($uint, $padTo = 5, $schema = null) : string - *wrapper for (new + encode())*  
+static dec($string, $schema = null) : uint or FALSE    - *wrapper for (new + decode())*  
 encode($uint, $padTo = 5) : string  
 decode($string) : uint or FALSE  
 
@@ -19,15 +20,15 @@ USAGE:
 
 	$uniqueNumber = 12345; // your unique numeric id
 
-	$uniqueKey = ANIdEncoder::enc($uniqueNumber);
+	$uniqueKey = ANIdEncoder::enc($uniqueNumber); // default padding is 5 characters
 
 OR
 --
 
 	$e = new ANIdEncoder;
-	$uniqueKey = $e->encode($uniqueNumber);
-	$uniqueKeyPaddedTo4 = $e->encode($uniqueNumber, 4);
-	$uniqueKeyNotPadded = $e->encode($uniqueNumber, 0);
+	$uniqueKey = $e->encode($uniqueNumber);             // default padding is 5 characters
+	$uniqueKeyPaddedTo4 = $e->encode($uniqueNumber, 4); // padding to 5 characters
+	$uniqueKeyNotPadded = $e->encode($uniqueNumber, 0); // no padding
 
 
 get numeric value:
@@ -55,7 +56,7 @@ Using custom scheme:
 	
 	$e = new ANIdEncoder($schema);
 
-or just pass the scheme into the static methods:
+or pass the scheme into the static methods:
 ------------------------------------------------
 
 	$uniqueKey = ANIdEncoder::enc($uniqueNumber, 5, $schema);
