@@ -128,19 +128,12 @@ class ANIdEncoder {
 	 * Always use the same scheme for one stack of values, if you change it, 
 	 * the uniqueness fails and you won't be able to retrieve values.
 	 */
-	/*protected $_schema = array(
+	protected $_schema = array(
 	'W1q3ewRQ2E4rT6tU5y7Ou8i9op0YIPnb',
 	'nrmzdxsgtcjkqflvbahw',
 	'H8YD5LJ3A7S2RPWQKN1TBU0G4M6F9CVZ',
 	'nAXzFdxsBgHcZKjSDkMCfVGlNvmJbLah',
 	'1ax5z2mr7wsv3bcg8qn9l4i0dfp6tjky'
-	);*/
-	protected $_schema = array(
-	'W8YD5LJ3A7S2RPHQKN1TBU0G4M6F9CVZ',
-	'nAXzFdxsBgHcZKjSDkMCfVGlNvmJbLah',
-	'nrmzdxsgtcjkqflvbahw',
-	'1ax5z2mr7wsv3cg8qn9l4i0dfp6tjky',
-	'W1q3ewRQ2E4rT6tU5y7Ou8i9op0YIPnb'
 	);
 	
 	// wrapper
