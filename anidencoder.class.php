@@ -36,28 +36,6 @@
  * 
  * $value = ANIdEncoder::dec($uniqueNumber);
  * 
- * OR
- * 
- * $e = new ANIdEncoder;
- * $value = $e->encode($uniqueKey); // return 12345
- * 
- * 
- * Using custom scheme:
- * 
- * 
- * $schema = array('1234567890qwertyuiop', 'asdfghjklzxcvbnm', 'asdfghjkl1234567890'); // your custom schema
- * $e = new ANIdEncoder($schema);
- * 
- * or just pass the scheme into the static methods:
- * 
- * $uniqueKey = ANIdEncoder::enc($uniqueNumber, 5, $schema);
- * 
- * 
- *
- * ! IMPORTANT:
- * DO NOT CHANGE THE SCHEMA after you've started to enrypt and to store ids with the schema you use.
- * Otherwise you won't be able to retrive correct numeric values via decode() and uniqueness fails.
- * 
  * 
  * Licensed under GPL v. 2. 
  * PROVIDED AS IS. NO WARRANTY. USE ON YOUR OWN RISK.
@@ -117,7 +95,7 @@ class ANIdEncoder {
 		// custom schema
 		if ($schema) $this->_schema = $schema;
 		
-		// pre-generate stuff for better perfomance
+		// pre-generate stuff for better performance
 		$this->_flipBase = array_flip($this->_offsetChars);
 		
 		$this->_charsets = array();
@@ -130,7 +108,7 @@ class ANIdEncoder {
 			$s = str_split($a);
 			$len = count($s);
 			
-			$aa = array_merge($s, $s); // double it for better perfomance in encoding
+			$aa = array_merge($s, $s); // double it for better performance in encoding
 			$this->_charsets[] = $aa;
 			$this->_flipCharsets[] = array_flip($s);
 			$this->_rowLengths[] = $len;
@@ -158,7 +136,7 @@ class ANIdEncoder {
 		
 		$row = 0;
 		
-		// improving perfomance
+		// improving performance
 		$l = $this->_numRows;
 		$charsets = $this->_charsets;
 		$lengths = $this->_rowLengths;
@@ -221,13 +199,13 @@ class ANIdEncoder {
 		$str = str_split($key);
 		$strPos = count($str) - 1;
 		
-		// improving perfomance
+		// improving performance
 		$l = $this->_numRows;
 		$flipCharsets = $this->_flipCharsets;
 		$lengths = $this->_rowLengths;
 		$flipBase = $this->_flipBase;
 		
-		// generate offsets table for better perfomance
+		// generate offsets table for better performance
 		$offsetBase = 0;
 		$offsetBases = array($offsetBase);
 		for ($i = 0; $i < $strPos; $i++) {
