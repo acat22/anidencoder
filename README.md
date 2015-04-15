@@ -66,7 +66,7 @@ or pass the scheme into the static methods:
 
 
 **IMPORTANT:**  
-DO NOT CHANGE THE SCHEMA after you've started to enrypt and to store ids with the schema you use.  
+If you started to encrypt and to store ids with the schema, always use the same schema for the rest of ids and for decoding.  
 Otherwise you won't be able to retrieve correct numeric values via decode() and uniqueness fails. 
 
 
