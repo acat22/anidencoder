@@ -4,8 +4,7 @@
  * Alpha-numeric unique id encoder.
  *
  * This class creates unique alpha-numeric keys out of unique integer numbers, looking like:
- * OjLf5, evPn0, wfQzm, RlSn0, QfDH4, 2zLf5, rjWBb, ThAZw, 6c1Cf, tqGA2, 4xLf5,
- * YwZVrIm, Iz1ZxPs, Pj7gn3n, nmKl21b, bj8Xiqm, etc.
+ * OjLf5, evPn0, wfQzm, RlSn0, QfDH4, 2zLf5, Iz1ZxPs, nmKl21b, bj8Xiqm, etc.
  * 
  * 
  * METHODS:
@@ -15,64 +14,55 @@
  * decode($string) : uint or FALSE
  * 
  * 
-USAGE:
-
- 
-$uniqueNumber = 12345; // your unique numeric id
-
-$uniqueKey = ANIdEncoder::enc($uniqueNumber); // return pv5L3 (with default schema)
-
-OR
-
-$e = new ANIdEncoder;
-$uniqueKey = $e->encode($uniqueNumber); // return pv5L3 (with default schema)
-$uniqueKeyPaddedTo4 = $e->encode($uniqueNumber, 4); // return pv5L (with default schema)
-$uniqueKeyNotPadded = $e->encode($uniqueNumber, 0); // return pv5 (with default schema)
-
-
-get numeric value:
-
- 
-$uniqueKey = 'pv5L3'; // your previously encoded key
-
-$value = ANIdEncoder::dec($uniqueNumber);
-
-OR
-
-$e = new ANIdEncoder;
-$value = $e->encode($uniqueKey); // return 12345
-
+ * USAGE:
+ * 
+ *  
+ * $uniqueNumber = 12345; // your unique numeric id
+ * 
+ * $uniqueKey = ANIdEncoder::enc($uniqueNumber); // return pv5L3 (with default schema)
+ * 
+ * OR
+ * 
+ * $e = new ANIdEncoder;
+ * $uniqueKey = $e->encode($uniqueNumber); // return pv5L3 (with default schema)
+ * $uniqueKeyPaddedTo4 = $e->encode($uniqueNumber, 4); // return pv5L (with default schema)
+ * $uniqueKeyNotPadded = $e->encode($uniqueNumber, 0); // return pv5 (with default schema)
+ * 
+ * 
+ * get numeric value:
+ * 
+ *  
+ * $uniqueKey = 'pv5L3'; // your previously encoded key
+ * 
+ * $value = ANIdEncoder::dec($uniqueNumber);
+ * 
+ * OR
+ * 
+ * $e = new ANIdEncoder;
+ * $value = $e->encode($uniqueKey); // return 12345
+ * 
  * 
  * Using custom scheme:
  * 
- 
-$schema = array('1234567890qwertyuiop', 'asdfghjklzxcvbnm', 'asdfghjkl1234567890'); // your custom schema
-$e = new ANIdEncoder($schema);
-
-or just pass the scheme into the static methods:
-
-$uniqueKey = ANIdEncoder::enc($uniqueNumber, 5, $schema);
-
-
+ * 
+ * $schema = array('1234567890qwertyuiop', 'asdfghjklzxcvbnm', 'asdfghjkl1234567890'); // your custom schema
+ * $e = new ANIdEncoder($schema);
+ * 
+ * or just pass the scheme into the static methods:
+ * 
+ * $uniqueKey = ANIdEncoder::enc($uniqueNumber, 5, $schema);
+ * 
+ * 
  *
  * ! IMPORTANT:
  * DO NOT CHANGE THE SCHEMA after you've started to enrypt and to store ids with the schema you use.
  * Otherwise you won't be able to retrive correct numeric values via decode() and uniqueness fails.
  * 
  * 
- * 
- * DESCRIPTION:
- * The bigger the number, the more characters will be in the final string. By default, 
- * it pads up the string to 5 characters if it's shorter.
- * The rates and encounters of characters and the similarity of the generated keys to real 
- * existing english words depend entirely on your scheme.
- * The default scheme makes it unlikely for the keys similar to real existing english 
- * words to be generated.
- * 
  * Licensed under GPL v. 2. 
  * PROVIDED AS IS. NO WARRANTY. USE ON YOUR OWN RISK.
  * 
- * Copyright (C) 2015
+ * Copyright (C) 2015. https://github.com/acat22/anidencoder
  * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
