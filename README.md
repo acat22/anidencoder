@@ -20,7 +20,9 @@ USAGE:
 
 	$uniqueNumber = 12345; // your unique numeric id
 
-	$uniqueKey = ANIdEncoder::enc($uniqueNumber); // default padding is 5 characters
+	$uniqueKey = ANIdEncoder::enc($uniqueNumber);    // default padding is 5 characters
+	$uniqueKey = ANIdEncoder::enc($uniqueNumber, 4); // padding up to 4 characters
+	$uniqueKey = ANIdEncoder::enc($uniqueNumber, 0, $schema); // no padding and custom scheme
 
 OR
 --
@@ -65,7 +67,7 @@ or pass the scheme into the static methods:
 
 **IMPORTANT:**  
 DO NOT CHANGE THE SCHEMA after you've started to enrypt and to store ids with the schema you use.  
-Otherwise you won't be able to retrive correct numeric values via decode() and uniqueness fails. 
+Otherwise you won't be able to retrieve correct numeric values via decode() and uniqueness fails. 
 
 
 
