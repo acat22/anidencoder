@@ -1,12 +1,13 @@
-Alpha-numeric unique id encoder
-===============================
+Alpha-numeric unique id encoder for PHP
+=======================================
 
 This class creates unique alpha-numeric keys out of unique integer numbers, looking like:  
 OjLf5, evPn0, wfQzm, RlSn0, QfDH4, 2zLf5, rjWBb, ThAZw, 6c1Cf, tqGA2, 4xLf5,  
 YwZVrIm, Iz1ZxPs, Pj7gn3n, nmKl21b, bj8Xiqm, etc.  
 
 It doesn't create words (well, low probability) and the uniqueness is guaranteed.  
-It doesn't create stuff like 'aaaaa' or '11111' or 'allow' or 'busy' too.    
+It doesn't create stuff like 'aaaaa' or '11111' or 'allow' or 'busy' too.  
+Works with any PHP 5 version.    
 
 METHODS:  
 static enc($uint, $padTo = 5, $schema = null) : string - *wrapper for (new + encode())*  
