@@ -107,7 +107,7 @@ class ANIdEncoder {
 	}
 	
 	/**
-	 * Constructor.
+	 * @constructor.
 	 *
 	 * Pass your own schema if you want.
 	 *
