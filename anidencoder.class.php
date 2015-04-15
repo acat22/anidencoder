@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  *
  * Alpha-numeric unique id encoder.
