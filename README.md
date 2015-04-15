@@ -1,7 +1,5 @@
-# anidencoder
 Alpha-numeric unique id encoder
-
-Alpha-numeric unique id encoder.
+===============================
 
 This class creates unique alpha-numeric keys out of unique integer numbers, looking like:
 OjLf5, evPn0, wfQzm, RlSn0, QfDH4, 2zLf5, rjWBb, ThAZw, 6c1Cf, tqGA2, 4xLf5,
@@ -16,46 +14,49 @@ decode($string) : uint or FALSE
 
 
 USAGE:
+-----
 
+	$uniqueNumber = 12345; // your unique numeric id
 
-$uniqueNumber = 12345; // your unique numeric id
-
-$uniqueKey = ANIdEncoder::enc($uniqueNumber); // return pv5L3 (with default schema)
+	$uniqueKey = ANIdEncoder::enc($uniqueNumber); // return pv5L3 (with default schema)
 
 OR
+--
 
-$e = new ANIdEncoder;
-$uniqueKey = $e->encode($uniqueNumber); // return pv5L3 (with default schema)
-$uniqueKeyPaddedTo4 = $e->encode($uniqueNumber, 4); // return pv5L (with default schema)
-$uniqueKeyNotPadded = $e->encode($uniqueNumber, 0); // return pv5 (with default schema)
+	$e = new ANIdEncoder;
+	$uniqueKey = $e->encode($uniqueNumber); // return pv5L3 (with default schema)
+	$uniqueKeyPaddedTo4 = $e->encode($uniqueNumber, 4); // return pv5L (with default schema)
+	$uniqueKeyNotPadded = $e->encode($uniqueNumber, 0); // return pv5 (with default schema)
 
 
 get numeric value:
+------------------
 
+	$uniqueKey = 'pv5L3'; // your previously encoded key
 
-$uniqueKey = 'pv5L3'; // your previously encoded key
-
-$value = ANIdEncoder::dec($uniqueNumber);
+	$value = ANIdEncoder::dec($uniqueNumber);
 
 OR
+--
 
-$e = new ANIdEncoder;
-$value = $e->encode($uniqueKey); // return 12345
+	$e = new ANIdEncoder;
+	$value = $e->encode($uniqueKey); // return 12345
 
 
 Using custom scheme:
+--------------------
 
-
-$schema = array('1234567890qwertyuiop', 'asdfghjklzxcvbnm', 'asdfghjkl1234567890'); // your custom schema
-$e = new ANIdEncoder($schema);
+	$schema = array('1234567890qwertyuiop', 'asdfghjklzxcvbnm', 'asdfghjkl1234567890'); // your custom schema
+	$e = new ANIdEncoder($schema);
 
 or just pass the scheme into the static methods:
+------------------------------------------------
 
 $uniqueKey = ANIdEncoder::enc($uniqueNumber, 5, $schema);
 
 
 
-! IMPORTANT:
+**IMPORTANT:**
 DO NOT CHANGE THE SCHEMA after you've started to enrypt and to store ids with the schema you use.
 Otherwise you won't be able to retrive correct numeric values via decode() and uniqueness fails.
 
