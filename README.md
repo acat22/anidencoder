@@ -27,7 +27,7 @@ OR
 
 	$e = new ANIdEncoder;
 	$uniqueKey = $e->encode($uniqueNumber);             // default padding is 5 characters
-	$uniqueKeyPaddedTo4 = $e->encode($uniqueNumber, 4); // padding to 5 characters
+	$uniqueKeyPaddedTo4 = $e->encode($uniqueNumber, 4); // padding up to 4 characters
 	$uniqueKeyNotPadded = $e->encode($uniqueNumber, 0); // no padding
 
 
