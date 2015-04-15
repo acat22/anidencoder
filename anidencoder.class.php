@@ -272,3 +272,4 @@ class ANIdEncoder {
 		return $int;
 	}
 }
+ 
